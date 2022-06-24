@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Input from './Input';
 import Textarea from './Textarea';
-import PropTypes from 'prop-types';
 
 class Form extends Component {
   render() {
@@ -19,6 +19,7 @@ class Form extends Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
+    console.log(hasTrunfo);
     return (
       <form>
         <Input
