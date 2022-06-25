@@ -23,6 +23,7 @@ class Form extends Component {
     return (
       <form>
         <Input
+          name="cardName"
           text="Nome da Carta:"
           testid="name-input"
           type="text"
@@ -30,11 +31,13 @@ class Form extends Component {
           handleChange={ onInputChange }
         />
         <Textarea
+          name="cardDescription"
           text="Descrição da Carta:"
           value={ cardDescription }
           handleChange={ onInputChange }
         />
         <Input
+          name="cardAttr1"
           text="Atributo 1"
           testid="attr1-input"
           type="number"
@@ -42,6 +45,7 @@ class Form extends Component {
           handleChange={ onInputChange }
         />
         <Input
+          name="cardAttr2"
           text="Atributo 2"
           testid="attr2-input"
           type="number"
@@ -49,6 +53,7 @@ class Form extends Component {
           handleChange={ onInputChange }
         />
         <Input
+          name="cardAttr3"
           text="Atributo 3"
           testid="attr3-input"
           type="number"
@@ -56,6 +61,7 @@ class Form extends Component {
           handleChange={ onInputChange }
         />
         <Input
+          name="cardImage"
           text="Imagem"
           testid="image-input"
           type="text"
@@ -65,8 +71,8 @@ class Form extends Component {
         <label htmlFor="rare-input">
           Raridade da Carta
           <select
+            name="cardRare"
             data-testid="rare-input"
-            name="rareInput"
             value={ cardRare }
             onChange={ onInputChange }
             id="rare-input"
@@ -79,6 +85,7 @@ class Form extends Component {
         <label htmlFor="trunfo-input">
           Carta Tryunfo
           <input
+            name="cardTrunfo"
             data-testid="trunfo-input"
             type="checkbox"
             checked={ cardTrunfo }
@@ -87,6 +94,7 @@ class Form extends Component {
           />
         </label>
         <button
+          name="isSaveButtonDisabled"
           data-testid="save-button"
           type="button"
           disabled={ isSaveButtonDisabled }
@@ -107,11 +115,11 @@ Form.propTypes = {
   cardAttr3: PropTypes.string.isRequired,
   cardImage: PropTypes.string.isRequired,
   cardRare: PropTypes.string.isRequired,
-  cardTrunfo: PropTypes.string.isRequired,
-  hasTrunfo: PropTypes.string.isRequired,
-  isSaveButtonDisabled: PropTypes.string.isRequired,
-  onInputChange: PropTypes.string.isRequired,
-  onSaveButtonClick: PropTypes.string.isRequired,
+  cardTrunfo: PropTypes.bool.isRequired,
+  hasTrunfo: PropTypes.bool.isRequired,
+  isSaveButtonDisabled: PropTypes.bool.isRequired,
+  onInputChange: PropTypes.func.isRequired,
+  onSaveButtonClick: PropTypes.func.isRequired,
 };
 
 export default Form;

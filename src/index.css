@@ -115,6 +115,19 @@ small,
   font-size: 0.8rem;
 }
 
+/* container  */
+.container {
+  display: flex;
+}
+
+.card-container {
+  width: 50%;
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  padding: 2rem 2.5rem;
+}
+
 /* image */
 .img {
   width: 100%;
@@ -154,6 +167,7 @@ button:disabled {
 
 /* form */
 form {
+  width: 50%;
   background: var(--white);
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
