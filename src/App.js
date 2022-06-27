@@ -1,6 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
 import Card from './components/Card';
+import DeckPreview from './components/DeckPreview';
 
 class App extends React.Component {
   constructor() {
@@ -73,6 +74,17 @@ class App extends React.Component {
     }));
   }
 
+  handleDeleteButton = ({ target }) => {
+    const { cards } = this.state;
+    const { id } = target;
+    const itsATrunfo = cards.find((card) => card.cardName === id).cardTrunfo;
+    const filteredDeck = cards.filter((card) => card.cardName !== id);
+    this.setState((prevState) => ({
+      cards: filteredDeck,
+      hasTrunfo: itsATrunfo ? false : prevState.hasTrunfo,
+    }));
+  }
+
   render() {
     const {
       cardName,
@@ -118,23 +130,7 @@ class App extends React.Component {
               cardTrunfo={ cardTrunfo }
             />
           </div>
-          <div className="cards-container">
-            {
-              cards.map((card) => (
-                <Card
-                  key={ card.cardName }
-                  cardName={ card.cardName }
-                  cardDescription={ card.cardDescription }
-                  cardAttr1={ card.cardAttr1 }
-                  cardAttr2={ card.cardAttr2 }
-                  cardAttr3={ card.cardAttr3 }
-                  cardImage={ card.cardImage }
-                  cardRare={ card.cardRare }
-                  cardTrunfo={ card.cardTrunfo }
-                />
-              ))
-            }
-          </div>
+          <DeckPreview cards={ cards } handleDeleteButton={ this.handleDeleteButton } />
         </div>
       </div>
     );
