@@ -8,17 +8,17 @@ class Form extends Component {
     const { cardTrunfo, onInputChange } = this.props;
     return (
       <label htmlFor="trunfo-input">
-          Carta Tryunfo
-          <input
-            name="cardTrunfo"
-            data-testid="trunfo-input"
-            type="checkbox"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-            id="trunfo-input"
-          />
-        </label>
-    )
+        Carta Tryunfo
+        <input
+          name="cardTrunfo"
+          data-testid="trunfo-input"
+          type="checkbox"
+          checked={ cardTrunfo }
+          onChange={ onInputChange }
+          id="trunfo-input"
+        />
+      </label>
+    );
   }
 
   render() {
@@ -117,7 +117,7 @@ class Form extends Component {
             cardImage,
             cardRare,
             cardTrunfo,
-          }, cardTrunfo) }
+          }) }
         >
           Salvar
         </button>

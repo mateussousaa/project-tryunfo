@@ -57,7 +57,7 @@ class App extends React.Component {
     }, this.validateSaveButton);
   }
 
-  onSaveButtonClick = (newCard, hasTrunfo) => {
+  onSaveButtonClick = (newCard) => {
     this.setState((prevState) => ({
       cardName: '',
       cardDescription: '',
@@ -67,7 +67,7 @@ class App extends React.Component {
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
-      hasTrunfo,
+      hasTrunfo: prevState.hasTrunfo ? true : newCard.cardTrunfo,
       isSaveButtonDisabled: true,
       cards: [...prevState.cards, newCard],
     }));
