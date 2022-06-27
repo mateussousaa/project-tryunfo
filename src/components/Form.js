@@ -19,7 +19,7 @@ class Form extends Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
-    console.log(hasTrunfo);
+    // console.log(hasTrunfo);
     return (
       <form>
         <Input
@@ -98,7 +98,16 @@ class Form extends Component {
           data-testid="save-button"
           type="button"
           disabled={ isSaveButtonDisabled }
-          onClick={ onSaveButtonClick }
+          onClick={ () => onSaveButtonClick({
+            cardName,
+            cardDescription,
+            cardAttr1,
+            cardAttr2,
+            cardAttr3,
+            cardImage,
+            cardRare,
+            cardTrunfo,
+          }) }
         >
           Salvar
         </button>

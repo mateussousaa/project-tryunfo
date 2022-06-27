@@ -8,14 +8,15 @@ class App extends React.Component {
     this.state = {
       cardName: '',
       cardDescription: '',
-      cardAttr1: '',
-      cardAttr2: '',
-      cardAttr3: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
       cardImage: '',
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
       isSaveButtonDisabled: true,
+      cards: [],
     };
   }
 
@@ -23,7 +24,7 @@ class App extends React.Component {
     const maxPowerByCard = 210;
     const maxPowerByAttr = 90;
     const validation = attributes
-      .every((attr) => attr >= 0 && attr <= maxPowerByAttr && !Number.isNaN(attr));
+      .every((attr) => attr >= 0 && attr <= maxPowerByAttr);
     if (!validation) return validation;
     return attributes.reduce((acc, attr) => acc + attr, 0) <= maxPowerByCard;
   }
@@ -56,8 +57,19 @@ class App extends React.Component {
     }, this.validateSaveButton);
   }
 
-  onSaveButtonClick = () => {
-    console.log('onSaveButtonClick');
+  onSaveButtonClick = (newCard) => {
+    this.setState((prevState) => ({
+      cardName: '',
+      cardDescription: '',
+      cardAttr1: '0',
+      cardAttr2: '0',
+      cardAttr3: '0',
+      cardImage: '',
+      cardRare: 'normal',
+      cardTrunfo: false,
+      isSaveButtonDisabled: true,
+      cards: [...prevState.cards, newCard],
+    }));
   }
 
   render() {
@@ -72,6 +84,7 @@ class App extends React.Component {
       cardTrunfo,
       hasTrunfo,
       isSaveButtonDisabled,
+      cards,
     } = this.state;
     return (
       <div>
@@ -90,6 +103,7 @@ class App extends React.Component {
             isSaveButtonDisabled={ isSaveButtonDisabled }
             onInputChange={ this.onInputChange }
             onSaveButtonClick={ this.onSaveButtonClick }
+            cards={ cards }
           />
           <Card
             cardName={ cardName }
