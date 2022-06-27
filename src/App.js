@@ -15,8 +15,37 @@ class App extends React.Component {
       cardRare: 'normal',
       cardTrunfo: false,
       hasTrunfo: false,
-      isSaveButtonDisabled: false,
+      isSaveButtonDisabled: true,
     };
+  }
+
+  verifyAttributesConditions = (attributes) => {
+    const maxPowerByCard = 210;
+    const maxPowerByAttr = 90;
+    const validation = attributes
+      .every((attr) => attr >= 0 && attr <= maxPowerByAttr && !Number.isNaN(attr));
+    if (!validation) return validation;
+    return attributes.reduce((acc, attr) => acc + attr, 0) <= maxPowerByCard;
+  }
+
+  validateSaveButton = () => {
+    const {
+      cardName,
+      cardDescription,
+      cardAttr1,
+      cardAttr2,
+      cardAttr3,
+      cardImage,
+      cardRare,
+    } = this.state;
+    const attrsOk = this.verifyAttributesConditions([
+      parseInt(cardAttr1, 10),
+      parseInt(cardAttr2, 10),
+      parseInt(cardAttr3, 10)]);
+    const fieldsOk = cardName && cardDescription && cardImage && cardRare;
+    this.setState({
+      isSaveButtonDisabled: !(attrsOk && fieldsOk),
+    });
   }
 
   onInputChange = ({ target }) => {
@@ -24,7 +53,7 @@ class App extends React.Component {
     const value = target.type === 'checkbox' ? target.checked : target.value;
     this.setState({
       [name]: value,
-    });
+    }, this.validateSaveButton);
   }
 
   onSaveButtonClick = () => {
