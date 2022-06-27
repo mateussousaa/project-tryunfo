@@ -34,7 +34,9 @@ class Card extends Component {
           { `Raridade da Carta: ${cardRare}` }
         </p>
         <img data-testid="image-card" src={ cardImage } alt={ cardName } />
-        {cardTrunfo ? <span data-testid="trunfo-card">Super Trunfo</span> : false }
+        {
+          cardTrunfo && <span data-testid="trunfo-card">Super Trunfo</span>
+        }
       </div>
     );
   }

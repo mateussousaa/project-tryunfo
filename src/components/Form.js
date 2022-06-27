@@ -4,6 +4,23 @@ import Input from './Input';
 import Textarea from './Textarea';
 
 class Form extends Component {
+  hasNoTrunfo = () => {
+    const { cardTrunfo, onInputChange } = this.props;
+    return (
+      <label htmlFor="trunfo-input">
+          Carta Tryunfo
+          <input
+            name="cardTrunfo"
+            data-testid="trunfo-input"
+            type="checkbox"
+            checked={ cardTrunfo }
+            onChange={ onInputChange }
+            id="trunfo-input"
+          />
+        </label>
+    )
+  }
+
   render() {
     const {
       cardName,
@@ -19,7 +36,6 @@ class Form extends Component {
       onInputChange,
       onSaveButtonClick,
     } = this.props;
-    // console.log(hasTrunfo);
     return (
       <form>
         <Input
@@ -82,17 +98,11 @@ class Form extends Component {
             <option>muito raro</option>
           </select>
         </label>
-        <label htmlFor="trunfo-input">
-          Carta Tryunfo
-          <input
-            name="cardTrunfo"
-            data-testid="trunfo-input"
-            type="checkbox"
-            checked={ cardTrunfo }
-            onChange={ onInputChange }
-            id="trunfo-input"
-          />
-        </label>
+        {
+          hasTrunfo
+            ? <span>Você já tem um Super Trunfo em seu baralho</span>
+            : this.hasNoTrunfo()
+        }
         <button
           name="isSaveButtonDisabled"
           data-testid="save-button"
@@ -107,7 +117,7 @@ class Form extends Component {
             cardImage,
             cardRare,
             cardTrunfo,
-          }) }
+          }, cardTrunfo) }
         >
           Salvar
         </button>
