@@ -122,14 +122,25 @@ small,
 /* container  */
 .container {
   display: flex;
+  flex-wrap: wrap;
 }
 
-.card-container {
+.card-preview {
   width: 50%;
   background: var(--white);
   border-radius: var(--borderRadius);
   box-shadow: var(--shadow-2);
   padding: 2rem 2.5rem;
+}
+
+.cards-container {
+  width: 100%;
+  display: flex;
+}
+
+.card {
+  padding: 20px;
+  max-width: 300px;
 }
 
 /* image */
@@ -210,4 +221,3 @@ select {
   color: var(--green-dark);
   background: var(--green-light);
 }
-@mateussousaa

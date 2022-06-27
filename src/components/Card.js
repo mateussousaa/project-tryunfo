@@ -14,7 +14,7 @@ class Card extends Component {
       cardTrunfo,
     } = this.props;
     return (
-      <div className="card-container">
+      <div className="card">
         <p data-testid="name-card">
           { `Nome da Carta: ${cardName}` }
         </p>
@@ -33,7 +33,12 @@ class Card extends Component {
         <p data-testid="rare-card">
           { `Raridade da Carta: ${cardRare}` }
         </p>
-        <img data-testid="image-card" src={ cardImage } alt={ cardName } />
+        <img
+          data-testid="image-card"
+          src={ cardImage }
+          alt={ cardName }
+          className="img"
+        />
         {
           cardTrunfo && <span data-testid="trunfo-card">Super Trunfo</span>
         }
