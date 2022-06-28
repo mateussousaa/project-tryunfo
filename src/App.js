@@ -20,6 +20,7 @@ class App extends React.Component {
       cards: [],
       nameFilter: '',
       rareFilter: 'todas',
+      trunfoFilter: false,
     };
   }
 
@@ -94,6 +95,15 @@ class App extends React.Component {
     });
   }
 
+  handleTrunfoFilter = ({ target }) => {
+    const { checked } = target;
+    this.setState({
+      nameFilter: '',
+      rareFilter: 'todas',
+      trunfoFilter: checked,
+    });
+  }
+
   render() {
     const {
       cardName,
@@ -109,6 +119,7 @@ class App extends React.Component {
       cards,
       nameFilter,
       rareFilter,
+      trunfoFilter,
     } = this.state;
     return (
       <div>
@@ -139,12 +150,6 @@ class App extends React.Component {
             cardRare={ cardRare }
             cardTrunfo={ cardTrunfo }
           />
-          <DeckPreview
-            nameFilter={ nameFilter }
-            rareFilter={ rareFilter }
-            cards={ cards }
-            handleDeleteButton={ this.handleDeleteButton }
-          />
           <input
             name="nameFilter"
             data-testid="name-filter"
@@ -152,18 +157,38 @@ class App extends React.Component {
             placeholder="Nome da carta"
             onChange={ this.handleSearch }
             value={ nameFilter }
+            disabled={ trunfoFilter }
           />
           <select
             name="rareFilter"
             data-testid="rare-filter"
-            value={ rareFilter }
             onChange={ this.handleSearch }
+            value={ rareFilter }
+            disabled={ trunfoFilter }
           >
             <option>todas</option>
             <option>normal</option>
             <option>raro</option>
             <option>muito raro</option>
           </select>
+          <label htmlFor="trunfo-filter">
+            Super Trunfo
+            <input
+              data-testid="trunfo-filter"
+              type="checkbox"
+              name="trunfoFilter"
+              onChange={ this.handleTrunfoFilter }
+              id="trunfo-filter"
+              value={ trunfoFilter }
+            />
+          </label>
+          <DeckPreview
+            nameFilter={ nameFilter }
+            rareFilter={ rareFilter }
+            trunfoFilter={ trunfoFilter }
+            cards={ cards }
+            handleDeleteButton={ this.handleDeleteButton }
+          />
         </div>
       </div>
     );
