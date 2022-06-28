@@ -4,10 +4,12 @@ import Card from './Card';
 
 class DeckPreview extends Component {
   render() {
-    const { nameFilter, cards, handleDeleteButton } = this.props;
+    const { nameFilter, rareFilter, cards, handleDeleteButton } = this.props;
+    const nameFilterLow = nameFilter.toLowerCase();
     return (
       cards
-        .filter((card) => card.cardName.toLowerCase().includes(nameFilter.toLowerCase()))
+        .filter((card) => card.cardName.toLowerCase().includes(nameFilterLow))
+        .filter((card) => (rareFilter === 'todas' ? true : rareFilter === card.cardRare))
         .map((card) => (
           <div
             className="card"
@@ -39,6 +41,7 @@ class DeckPreview extends Component {
 
 DeckPreview.propTypes = {
   nameFilter: PropTypes.string.isRequired,
+  rareFilter: PropTypes.string.isRequired,
   cards: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleDeleteButton: PropTypes.func.isRequired,
 };

@@ -19,6 +19,7 @@ class App extends React.Component {
       isSaveButtonDisabled: true,
       cards: [],
       nameFilter: '',
+      rareFilter: 'todas',
     };
   }
 
@@ -87,9 +88,9 @@ class App extends React.Component {
   }
 
   handleSearch = ({ target }) => {
-    const { value } = target;
+    const { name, value } = target;
     this.setState({
-      nameFilter: value,
+      [name]: value,
     });
   }
 
@@ -107,6 +108,7 @@ class App extends React.Component {
       isSaveButtonDisabled,
       cards,
       nameFilter,
+      rareFilter,
     } = this.state;
     return (
       <div>
@@ -139,15 +141,29 @@ class App extends React.Component {
           />
           <DeckPreview
             nameFilter={ nameFilter }
+            rareFilter={ rareFilter }
             cards={ cards }
             handleDeleteButton={ this.handleDeleteButton }
           />
           <input
+            name="nameFilter"
             data-testid="name-filter"
             type="text"
             placeholder="Nome da carta"
             onChange={ this.handleSearch }
+            value={ nameFilter }
           />
+          <select
+            name="rareFilter"
+            data-testid="rare-filter"
+            value={ rareFilter }
+            onChange={ this.handleSearch }
+          >
+            <option>todas</option>
+            <option>normal</option>
+            <option>raro</option>
+            <option>muito raro</option>
+          </select>
         </div>
       </div>
     );
