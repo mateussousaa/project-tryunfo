@@ -1,7 +1,7 @@
 import React from 'react';
 import Form from './components/Form';
-import Card from './components/Card';
 import DeckPreview from './components/DeckPreview';
+import CardPreview from './components/CardPreview';
 
 class App extends React.Component {
   constructor() {
@@ -18,6 +18,7 @@ class App extends React.Component {
       hasTrunfo: false,
       isSaveButtonDisabled: true,
       cards: [],
+      nameFilter: '',
     };
   }
 
@@ -85,6 +86,13 @@ class App extends React.Component {
     }));
   }
 
+  handleSearch = ({ target }) => {
+    const { value } = target;
+    this.setState({
+      nameFilter: value,
+    });
+  }
+
   render() {
     const {
       cardName,
@@ -98,6 +106,7 @@ class App extends React.Component {
       hasTrunfo,
       isSaveButtonDisabled,
       cards,
+      nameFilter,
     } = this.state;
     return (
       <div>
@@ -118,19 +127,27 @@ class App extends React.Component {
             onSaveButtonClick={ this.onSaveButtonClick }
             cards={ cards }
           />
-          <div className="card-preview">
-            <Card
-              cardName={ cardName }
-              cardDescription={ cardDescription }
-              cardAttr1={ cardAttr1 }
-              cardAttr2={ cardAttr2 }
-              cardAttr3={ cardAttr3 }
-              cardImage={ cardImage }
-              cardRare={ cardRare }
-              cardTrunfo={ cardTrunfo }
-            />
-          </div>
-          <DeckPreview cards={ cards } handleDeleteButton={ this.handleDeleteButton } />
+          <CardPreview
+            cardName={ cardName }
+            cardDescription={ cardDescription }
+            cardAttr1={ cardAttr1 }
+            cardAttr2={ cardAttr2 }
+            cardAttr3={ cardAttr3 }
+            cardImage={ cardImage }
+            cardRare={ cardRare }
+            cardTrunfo={ cardTrunfo }
+          />
+          <DeckPreview
+            nameFilter={ nameFilter }
+            cards={ cards }
+            handleDeleteButton={ this.handleDeleteButton }
+          />
+          <input
+            data-testid="name-filter"
+            type="text"
+            placeholder="Nome da carta"
+            onChange={ this.handleSearch }
+          />
         </div>
       </div>
     );

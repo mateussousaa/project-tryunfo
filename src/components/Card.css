@@ -1,0 +1,25 @@
+.card {
+  padding: 40px;
+  max-width: 400px;
+  background-color: #0756F2;
+  display: flex;
+  flex-direction: column;
+}
+
+.card .field {
+  padding: 20px 10px;
+}
+
+.card p {
+  display: inline;
+}
+
+.card img {
+  margin: 0 auto;
+  padding: 15px;
+  width: 200px;
+}
+
+.card span {
+  align-self: center;
+}
