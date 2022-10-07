@@ -1,0 +1,343 @@
+@import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700&display=swap');
+@import url('http://fonts.cdnfonts.com/css/valorant');
+
+:root {
+  --color01: #F24472;
+  --color02: #591830;
+  --color03: #111822;
+  --color04: #05F2AF;
+  --color05: #03A678;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: 'Epilogue', sans-serif;
+}
+
+main {
+  background-color: var(--color01);
+}
+
+.logo {
+  display: block;
+  text-align: center;
+  margin: auto;
+  font-size: 60px;
+  padding: 60px 20px;
+  display: flex;
+  font-family: 'VALORANT', sans-serif;
+}
+
+.logo span {
+  width: 100%;
+}
+
+.preview-container {
+  margin: auto;
+  display: flex;
+  border-radius: 20px;
+  background-color: var(--color03);
+  justify-content: space-around;
+  padding: 50px 100px;
+  gap: 40px;
+  width: 90%;
+  min-height: 721px;
+  box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.8);
+  flex-wrap: wrap;
+}
+
+.form-preview h3, .card-preview h3 {
+  white-space: nowrap;
+  text-transform: uppercase;
+  color: var(--color04);
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 28.7px;
+  padding-bottom: 20px;
+  text-align: center;
+}
+
+.form-preview form {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-preview label {
+  color: var(--color04);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 150%;
+}
+
+.form-preview:first-child label input{
+  padding-top: 16px;
+  border-radius: 5px;
+}
+
+.form-preview label:first-child input, .form-preview label textarea {
+  text-indent: 5px;
+  font-weight: 700;
+  display: block;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+}
+
+.form-preview label:nth-child(n + 3) {
+  display: flex;
+  gap: 32px;
+  justify-content: space-between;
+}
+
+.form-preview label:nth-child(n + 3) input {
+  border: 0;
+  max-width: 275px;
+  border-radius: 5px;
+  text-indent: 5px;
+  font-weight: 700;
+}
+
+.form-preview label:nth-child(7) {
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.form-preview select {
+  border: none;
+  background-color: white;
+  padding: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  color: #2e323ad8;
+  border-radius: 5px;
+}
+
+.form-preview option {
+  font-size: 16px;
+  font-weight: 700;
+  color: #3d495c;
+}
+
+.form-preview label:nth-child(8) {
+  padding-top: 20px;
+  justify-content: center;
+}
+
+.form-preview form button {
+  width: 200px;
+  height: 40px;
+  background: var(--color01);
+  font-size: 16px;
+  border: 0;
+  color: white;
+  border-radius: 2px;
+  align-self: center;
+  border-radius: 5px;
+  font-weight: 700;
+}
+
+.form-preview form button:disabled {
+  opacity: .5;
+}
+
+.card-preview {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-border {
+  width: 358.17px;
+  padding: 12px;
+  box-shadow: 0px 4px 19px rgba(0, 0, 0, 0.8);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color02);
+}
+
+.card {
+  width: 100%;
+  background: var(--color03);
+  border-radius: 9.73277px;
+  padding: 16px 8px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.card .name {
+  background-color: var(--color02);
+  border-radius: 9.73277px 9.73277px 0px 0px;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.card .name p {
+  font-size: 26px;
+  font-weight: 700;
+  color: white;
+  margin-right: 16px;
+  text-transform: uppercase;
+}
+
+.card .image {
+  min-height: 270px;
+  padding: 16px;
+  background-color: white;
+  border-radius: 0 0 9.73277px 9.73277px;
+  display: flex;
+  justify-content: center;
+}
+
+.card .image img {
+  object-fit: contain;
+  max-width: 180px;
+}
+
+.field {
+  width: 100%;
+}
+
+.field img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+}
+
+
+.card .description {
+  padding: 4px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.card .description p {
+  color: white;
+  font-weight: 700;
+  overflow: hidden;
+  text-transform: uppercase;
+}
+
+.field:nth-child(n + 4) {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 10px;
+  border-radius: 9.73px;
+  background-color: white;
+  margin: 4px 0;
+  color: #3D495C;;
+  font-weight: 700;
+}
+
+.card .trunfo {
+  display: block;
+  width: 80px;
+  bottom: 190px;
+  right: 10px;
+  position: absolute;
+}
+
+.filters {
+  display: flex;
+  padding: 16px;
+  width: 90%;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+  background-color: var(--color03);
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.filters input, .filters select{
+  width: 200px;
+  padding: 10px;
+  color: #3D495C;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 0;
+}
+
+.filters label {
+  white-space: nowrap;
+  display: flex;
+  max-width: 200px;
+  padding: 10px;
+  justify-content: center;
+  color: white;
+  font-weight: 700;
+}
+
+
+.deck-preview {
+  padding: 40px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: auto;
+  gap: 16px;
+  justify-content: center;
+}
+
+.deck-preview-card {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.deck-preview-card button {
+  width: 200px;
+  height: 40px;
+  background: var(--color03);
+  font-size: 16px;
+  font-weight: 700;
+  border: 0;
+  color: white;
+  border-radius: 2px;
+  align-self: center;
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 1200px) {
+  .preview-container {
+    gap: 80px;
+  }
+  .filters {
+    flex-direction: column;
+    gap: 20px; 
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .card-border {
+    width: 295px;
+  }
+  .form-preview h3, .card-preview h3 {
+    white-space: normal;
+  }
+  .form-preview label {
+    white-space: nowrap;
+    align-self: center;
+  }
+  .form-preview form input {
+    width: 100%;
+  }
+  .logo {
+    font-size: 41px;
+  }
+}

@@ -13,6 +13,7 @@ class Textarea extends Component {
           value={ value }
           onChange={ handleChange }
           id="description-input"
+          rows={ 5 }
         />
       </label>
     );
