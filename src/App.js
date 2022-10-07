@@ -2,7 +2,6 @@ import React from 'react';
 import Form from './components/Form';
 import DeckPreview from './components/DeckPreview';
 import CardPreview from './components/CardPreview';
-import logo from './logo_tryunfo.png';
 import FilterDeck from './components/FilterDeck';
 import './App.css';
 import initialCards from './initialCards';
