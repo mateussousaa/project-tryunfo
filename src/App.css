@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Epilogue:wght@300;400;700&display=swap');
-@import url('http://fonts.cdnfonts.com/css/valorant');
+
+@font-face {
+  font-family: 'VALORANT';
+  src: url(./Valorant_Font.ttf);
+}
 
 :root {
   --color01: #F24472;
