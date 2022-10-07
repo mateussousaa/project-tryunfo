@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: 'VALORANT';
-  src: url(./Valorant_Font.ttf);
+  src: url('./Valorant_Font.ttf');
 }
 
 :root {
