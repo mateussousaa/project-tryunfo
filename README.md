@@ -1,6 +1,6 @@
 # Tryunfant
 
-![Screenshot da tela inicial](tryunfante.gif)
+![Screenshot da tela inicial](tryunfant.gif)
 
 ### PT - BR
 
