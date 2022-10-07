@@ -106,7 +106,7 @@ class App extends React.Component {
     return (
       <main>
         <div className="logo">
-          <span>Tryunfante</span>
+          <span>Tryunfant</span>
         </div>
         <div className="preview-container">
           <Form
