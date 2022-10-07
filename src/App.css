@@ -84,6 +84,7 @@ main {
 }
 
 .form-preview label:first-child input, .form-preview label textarea {
+  padding: 6px 3px;
   text-indent: 5px;
   font-weight: 700;
   display: block;
